@@ -1,0 +1,151 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background: #f5f9ff;
+    color: #222;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header {
+    background: #0b74de;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  h1 {
+    margin: 0;
+    font-size: 22px;
+  }
+  
+  .controls button {
+    background: white;
+    color: #0b74de;
+    border: none;
+    padding: 8px 14px;
+    margin-left: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .controls button:hover {
+    background: #dbeafe;
+  }
+  
+  #container {
+    padding: 25px;
+    display: grid;
+    gap: 20px;
+  }
+  
+  .week-card {
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s;
+  }
+  
+  .week-card:hover {
+    transform: translateY(-3px);
+  }
+  
+  .week-title {
+    font-size: 18px;
+    color: #0b74de;
+    margin-bottom: 10px;
+  }
+  
+  .task {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+  }
+  
+  .task input {
+    margin-left: 8px;
+    transform: scale(1.2);
+  }
+  
+  #calendar {
+    background: white;
+    margin: 25px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+  
+  #calendar h2 {
+    color: #0b74de;
+    margin-bottom: 15px;
+  }
+  
+  #calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+  }
+  
+  .day {
+    background: #f0f4ff;
+    text-align: center;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .day.completed {
+    background: #a5d8ff;
+    text-decoration: line-through;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 15px;
+    color: #555;
+    background: #eef5ff;
+    font-size: 14px;
+  }
+  
+  #calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .day-head {
+    background: #dbeafe !important;
+    font-weight: bold;
+    border-radius: 6px;
+  }
+  
+  .day.empty {
+    background: transparent;
+    pointer-events: none;
+  }
+  
+  .day {
+    background: #f0f4ff;
+    padding: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+  }
+  
+  .day:hover {
+    background: #bcd4ff;
+  }
+  
+  .day.completed {
+    background: #a5d8ff;
+    color: #0b74de;
+    font-weight: bold;
+    text-decoration: line-through;
+  }
+  
