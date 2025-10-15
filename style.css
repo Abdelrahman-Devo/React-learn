@@ -1,114 +1,129 @@
-body {
+:root {
+    --main-color: #4f46e5;
+    --accent: #60a5fa;
+    --light-bg: #f8fafc;
+    --text: #1e293b;
+  }
+  
+  body {
     font-family: 'Cairo', sans-serif;
-    background: #f5f9ff;
-    color: #222;
+    background: var(--light-bg);
+    color: var(--text);
     margin: 0;
     padding: 0;
+    direction: rtl;
   }
   
   header {
-    background: #0b74de;
+    text-align: center;
+    padding: 20px;
+    background: var(--main-color);
     color: white;
-    padding: 15px 30px;
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+  }
+  
+  .top-buttons {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
   }
   
-  h1 {
-    margin: 0;
-    font-size: 22px;
-  }
-  
-  .controls button {
+  .top-buttons button {
     background: white;
-    color: #0b74de;
+    color: var(--main-color);
     border: none;
-    padding: 8px 14px;
-    margin-left: 8px;
+    padding: 8px 16px;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
     transition: 0.3s;
   }
+  .top-buttons button:hover { background: var(--accent); color: white; }
   
-  .controls button:hover {
-    background: #dbeafe;
+  .progress-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 15px;
   }
   
-  #container {
-    padding: 25px;
-    display: grid;
-    gap: 20px;
-  }
-  
-  .week-card {
-    background: white;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s;
-  }
-  
-  .week-card:hover {
-    transform: translateY(-3px);
-  }
-  
-  .week-title {
-    font-size: 18px;
-    color: #0b74de;
-    margin-bottom: 10px;
-  }
-  
-  .task {
+  .progress-circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 8px solid #d1d5db;
+    position: relative;
     display: flex;
     align-items: center;
-    margin: 6px 0;
+    justify-content: center;
   }
   
-  .task input {
-    margin-left: 8px;
-    transform: scale(1.2);
+  .progress-circle::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 8px solid var(--accent);
+    transform: rotate(calc(var(--progress) * 3.6deg));
+    transform-origin: center;
+    clip-path: polygon(50% 50%, 100% 0, 100% 100%);
   }
   
-  #calendar {
+  #progressText {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  #planContainer {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 10px;
+  }
+  
+  .week {
     background: white;
-    margin: 25px;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   }
   
-  #calendar h2 {
-    color: #0b74de;
-    margin-bottom: 15px;
-  }
-  
-  #calendarGrid {
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+  .week h2 {
+    color: var(--main-color);
   }
   
   .day {
-    background: #f0f4ff;
-    text-align: center;
-    padding: 15px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 6px 0;
   }
   
-  .day.completed {
-    background: #a5d8ff;
-    text-decoration: line-through;
+  .day input[type="checkbox"] {
+    transform: scale(1.2);
+    accent-color: var(--main-color);
   }
   
-  footer {
+  .resources {
+    margin-top: 10px;
+    padding-left: 15px;
+  }
+  
+  .resources a {
+    display: block;
+    color: var(--main-color);
+    text-decoration: none;
+    margin: 4px 0;
+  }
+  .resources a:hover { text-decoration: underline; }
+  
+  #calendar {
+    margin: 40px auto;
+    max-width: 900px;
     text-align: center;
-    padding: 15px;
-    color: #555;
-    background: #eef5ff;
-    font-size: 14px;
   }
   
   #calendarGrid {
@@ -138,10 +153,7 @@ body {
     font-size: 14px;
   }
   
-  .day:hover {
-    background: #bcd4ff;
-  }
-  
+  .day:hover { background: #bcd4ff; }
   .day.completed {
     background: #a5d8ff;
     color: #0b74de;
@@ -149,3 +161,71 @@ body {
     text-decoration: line-through;
   }
   
+  footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--main-color);
+    color: white;
+    margin-top: 30px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+  }
+  
+  @media (max-width: 768px) {
+    #calendarGrid { grid-template-columns: repeat(7, 1fr); }
+    .progress-circle { width: 80px; height: 80px; border-width: 6px; }
+  }
+  .about-container {
+    max-width: 900px;
+    margin: 30px auto;
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .about-container h2 {
+    color: var(--main-color);
+    margin-top: 20px;
+  }
+  
+  .about-container p, .about-container ul {
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  
+  .about-container ul {
+    padding-left: 20px;
+  }
+  
+  .about-container li {
+    margin-bottom: 6px;
+  }
+  
+  .resources a {
+    display: inline-block;
+    background: var(--accent);
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 6px 6px 0 0;
+    border-radius: 8px;
+    transition: 0.3s;
+  }
+  .resources a:hover { background: var(--main-color); }
+  
+  .back-btn {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .back-btn a {
+    background: var(--main-color);
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  .back-btn a:hover { background: var(--accent); }
+    

@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>خطة تعلم React</title>
+  <title>خطة تعلم React | Devo</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
   <header>
-    <h1>⚛️ خطة تعلم React</h1>
-    <div class="buttons">
-      <button id="langToggle">🌐 تبديل اللغة</button>
-      <button id="downloadBtn">💾 تحميل PDF</button>
+    <h1>⚛️ خطة تعلم React - Devo</h1>
+    <div class="top-buttons">
+      <button id="toggleLang">🌐 English</button>
+      <button id="downloadBtn">⬇️ تحميل PDF</button>
+    </div>
+    <div class="progress-container">
+      <div class="progress-circle" id="progressCircle">
+        <span id="progressText">0%</span>
+      </div>
+      <p id="progressLabel">نسبة التقدّم</p>
     </div>
   </header>
 
-  <main id="container"></main>
+  <main id="planContainer"></main>
 
-  <footer>
-    <p>© 2025 Devo | React Learning Journey</p>
-  </footer>
+  <section id="calendar">
+    <h2>📅 تقويم التقدّم</h2>
+    <div id="calendarGrid"></div>
+  </section>
+  <button onclick="window.location.href='about.html'">ℹ️ حول الخطة</button>
+
+
+  <footer>تم الإنشاء بواسطة 💙 Devo | React Learning Journey</footer>
 
   <script src="script.js"></script>
 </body>
